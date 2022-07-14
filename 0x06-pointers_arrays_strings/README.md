@@ -1,0 +1,2 @@
+more pointer, array, strng
+
