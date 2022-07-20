@@ -3,6 +3,7 @@
 /**
  * factorial - factorial n
  * @n: integral arams
+ * Return: recursion
  */
 
 int factorial(int n)
