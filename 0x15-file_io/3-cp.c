@@ -6,10 +6,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 /**
- *  * _error - Read file.
- *   * @e: Error number
- *    * @filename: File name
- *     */
+ * _error - Read file.
+ * @e: Error number
+ * @filename: File name
+ */
 void _error(int e, char *filename)
 {
 	if (e == 98)
@@ -24,11 +24,11 @@ void _error(int e, char *filename)
 	}
 }
 /**
- *  * cp - Copies the content of a file to another file.
- *   * @file_from: Name of the source file.
- *    * @file_to: Name of the destination file.
- *     * Return: 1 on success, -1 on failure.
- *      */
+ * cp - Copies the content of a file to another file.
+ * @file_from: Name of the source file.
+ * @file_to: Name of the destination file.
+ * Return: 1 on success, -1 on failure.
+ */
 void cp(char *file_from, char *file_to)
 {
 	int fd_read, res_read, fd_write, res_write;
@@ -68,11 +68,11 @@ void cp(char *file_from, char *file_to)
 		}
 }
 /**
- *  * main - Copies the content of a file to another file.
- *   * @ac: Argument count
- *    * @av: argument values
- *     * Return: 0 on succes, -1 on error.
- *      */
+ * main - Copies the content of a file to another file.
+ * @ac: Argument count
+ * @av: argument values
+ * Return: 0 on succes, -1 on error.
+ */
 int main(int ac, char *av[])
 {
 	if (ac != 3)
