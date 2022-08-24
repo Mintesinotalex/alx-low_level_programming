@@ -33,10 +33,10 @@ void check_elf(unsigned char *e_ident)
 			e_ident[index] != 'E' &&
 			e_ident[index] != 'L' &&
 			e_ident[index] != 'F')
-			{
-				dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-				exit(98);
-			}
+		{
+			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+			exit(98);
+		}
 	}
 }
 
@@ -118,7 +118,7 @@ void print_data(unsigned char *e_ident)
 void print_version(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
-		e_ident[EI_VERSION]);
+			e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -183,7 +183,7 @@ void print_osabi(unsigned char *e_ident)
 void print_abi(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
-		e_ident[EI_ABIVERSION]);
+			e_ident[EI_ABIVERSION]);
 }
 
 /**
