@@ -1,55 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
-
 /**
- * delete_dnodeint_at_index - Delete node at nth index
- *
- * @head: Head of node
- *
- * @index: index
- *
- * Return: 1 succeed, -1 if fail
+ * delete_dnodeint_at_index - deletes a node at an index.
+ * @head: pointer to first elements of a linked list.
+ * @index: index of node that should be deleted
+ * Return: 1 on success, -1 on failure.
  */
-
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *node;
-	unsigned int count;
+	unsigned int i;
+	dlistint_t *temp;
 
 	if (*head == NULL)
 		return (-1);
-
-	node = *head;
+	temp = *head;
 	if (index == 0)
 	{
-		*head = node->next;
-		if (node->next != NULL)
-		{
-			node->next->prev = NULL;
-		}
-		free(node);
+		*head = temp->next;
+		free(temp);
 		return (1);
 	}
-	for (count = 0; node != NULL && count < index - 1 ; count++)
+	for (i = 0; i < index; i++)
 	{
-		node = node->next;
+		temp = temp->next;
+		if (temp->next == NULL)
+			return (-1);
 	}
-	if (node == NULL || node->next == NULL)
-	{
-		return (-1);
-	}
+	temp->prev->next = temp->next;
+	temp->next->prev = temp->prev;
+	free(temp);
 
-	if (node->next->next != NULL)
-	{
-		node->next = node->next->next;
-		free(node->next->prev);
-		node->next->prev = node;
-		return (1);
-	}
-	else
-	{
-		free(node->next);
-		node->next = NULL;
-		return (1);
-	}
-	return (-1);
+	return (1);
 }
